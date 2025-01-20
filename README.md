@@ -2,7 +2,7 @@
 
 A minimalist and elegant Pomodoro timer application built with Electron.js, designed to boost your productivity with style.
 
-![FocusFlow Screenshot](1.png)
+![FocusFlow Screenshot](1.jpg)
 
 ## Features
 
