@@ -1,0 +1,20 @@
+{
+  "name": "focusflow",
+  "version": "1.0.0",
+  "description": "A beautiful and modern Pomodoro Timer desktop application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^28.1.0",
+    "electron-builder": "^24.9.1"
+  },
+  "dependencies": {
+    "@electron/remote": "^2.1.2",
+    "gsap": "^3.12.4"
+  }
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FocusFlow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Window Controls -->
+    <div class="window-controls left">
+        <button id="exitBtn" title="Exit">×</button>
+    </div>
+    <div class="window-controls right">
+        <button id="minimizeBtn" title="Minimize">─</button>
+        <button id="fullscreenBtn" title="Toggle Fullscreen">⛶</button>
+    </div>
+
+    <div class="app-container">
+        <!-- Timer Section -->
+        <div class="timer-container">
+            <div class="timer-circle">
+                <svg class="progress-ring" width="300" height="300">
+                    <circle class="progress-ring__circle" stroke="#ef32d9" stroke-width="8" fill="transparent" r="140" cx="150" cy="150"/>
+                </svg>
+                <div class="timer-display">
+                    <span id="minutes">25</span>:<span id="seconds">00</span>
+                </div>
+            </div>
+            <div class="timer-label">Work Time</div>
+            <div class="session-info">Session: <span id="sessionCount">0</span></div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button id="startBtn" class="control-btn">Start</button>
+            <button id="resetBtn" class="control-btn">Reset</button>
+            <button id="settingsBtn" class="control-btn">Settings</button>
+        </div>
+
+        <!-- Daily Goal -->
+        <div class="daily-goal">
+            <h3>Daily Goal Progress</h3>
+            <div class="goal-progress">
+                <div id="goalBar" class="goal-bar" style="width: 0%"></div>
+            </div>
+            <div id="goalText">0/8 Pomodoros</div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+            <button class="quick-action-btn" id="toggleThemeBtn" data-tooltip="Toggle Theme">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="quick-action-btn" id="toggleFullscreenBtn" data-tooltip="Toggle Fullscreen">
+                <i class="fas fa-expand"></i>
+            </button>
+            <button class="quick-action-btn" id="skipBreakBtn" data-tooltip="Skip Break">
+                <i class="fas fa-forward"></i>
+            </button>
+        </div>
+
+        <!-- Keyboard Shortcuts -->
+        <div class="keyboard-shortcuts">
+            <h4>Keyboard Shortcuts</h4>
+            <ul>
+                <li><kbd>Space</kbd> Start/Pause Timer</li>
+                <li><kbd>R</kbd> Reset Timer</li>
+                <li><kbd>S</kbd> Open Settings</li>
+                <li><kbd>Esc</kbd> Close Modal</li>
+                <li><kbd>F11</kbd> Toggle Fullscreen</li>
+                <li><kbd>T</kbd> Toggle Theme</li>
+            </ul>
+        </div>
+
+        <!-- Settings Modal -->
+        <div id="settingsModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Settings</h2>
+                    <button id="closeSettings" class="close-btn">×</button>
+                </div>
+                <div class="settings-grid">
+                    <div class="setting-item">
+                        <label for="workDuration">Work Duration</label>
+                        <input type="number" id="workDuration" min="1" max="60" value="25">
+                    </div>
+                    <div class="setting-item">
+                        <label for="breakDuration">Break Duration</label>
+                        <input type="number" id="breakDuration" min="1" max="30" value="5">
+                    </div>
+                    <div class="setting-item">
+                        <label for="longBreakDuration">Long Break</label>
+                        <input type="number" id="longBreakDuration" min="5" max="60" value="15">
+                    </div>
+                    <div class="setting-item">
+                        <label for="dailyGoal">Daily Goal</label>
+                        <input type="number" id="dailyGoal" min="1" max="20" value="8">
+                    </div>
+                </div>
+                <div class="settings-footer">
+                    <div class="setting-item theme-select">
+                        <select id="themeSelect">
+                            <option value="light">Light Theme</option>
+                            <option value="dark">Dark Theme</option>
+                        </select>
+                    </div>
+                    <button id="saveSettings" class="save-btn">Save</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Notification -->
+        <div id="toast" class="toast"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+    <script src="renderer.js"></script>
+</body>
+</html>
